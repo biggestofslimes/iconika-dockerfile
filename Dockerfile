@@ -1,9 +1,10 @@
 FROM runpod/worker-comfyui:5.1.0-base
 
-# Add ComfyUI's official node implementations
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git /root/ComfyUI \
+# Install official ComfyUI node definitions
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git /tmp/comfy \
  && mkdir -p /comfyui/custom_nodes \
- && cp -r /root/ComfyUI/custom_nodes/* /comfyui/custom_nodes/
+ && cp -r /tmp/comfy/custom_nodes/* /comfyui/custom_nodes/ \
+ && rm -rf /tmp/comfy
 
 # Download models
 RUN comfy model download --url https://huggingface.co/Alex42069/iconika-models/resolve/main/models/ultrareal/ultrarealFineTune_v4.safetensors --relative-path models/checkpoints --filename ultrarealFineTune_v4.safetensors
