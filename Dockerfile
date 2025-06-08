@@ -7,4 +7,4 @@ RUN comfy model download --url https://huggingface.co/Alex42069/iconika-models/r
 RUN comfy model download --url https://huggingface.co/Alex42069/iconika-models/resolve/main/models/t5/t5xxl_fp16.safetensors --relative-path models/clip --filename t5xxl_fp16.safetensors
 
 # ✅ Correct way to install nodes on RunPod
-RUN comfy-node-install ComfyUI-Impact-Pack ComfyUI-Impact-Subpack
+RUN comfy-node-install comfyui-impact-pack comfyui-impact-subpack
